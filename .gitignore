@@ -1,0 +1,4 @@
+Podfile.lock
+Pods/
+UABParkingFinder-iOS/GoogleService-Info.plist
+*.DS_Store

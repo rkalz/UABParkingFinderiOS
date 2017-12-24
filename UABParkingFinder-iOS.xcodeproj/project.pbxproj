@@ -1,0 +1,768 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8069CD51FC10DB7E1C58FC0F /* Pods_UABParkingFinder_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2AAA1473990A8D35A22D587 /* Pods_UABParkingFinder_iOSTests.framework */; };
+		8A966CC8400BEBAB4398DF21 /* Pods_UABParkingFinder_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B05942596A8C2DBF0155592 /* Pods_UABParkingFinder_iOSUITests.framework */; };
+		92DD20551FF047BB0002159D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD20541FF047BB0002159D /* AppDelegate.swift */; };
+		92DD20571FF047BB0002159D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD20561FF047BB0002159D /* ViewController.swift */; };
+		92DD205A1FF047BB0002159D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DD20581FF047BB0002159D /* Main.storyboard */; };
+		92DD205C1FF047BC0002159D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DD205B1FF047BC0002159D /* Assets.xcassets */; };
+		92DD205F1FF047BC0002159D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DD205D1FF047BC0002159D /* LaunchScreen.storyboard */; };
+		92DD206A1FF047BC0002159D /* UABParkingFinder_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD20691FF047BC0002159D /* UABParkingFinder_iOSTests.swift */; };
+		92DD20751FF047BC0002159D /* UABParkingFinder_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD20741FF047BC0002159D /* UABParkingFinder_iOSUITests.swift */; };
+		92DD20831FF049DE0002159D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 92DD20821FF049DD0002159D /* GoogleService-Info.plist */; };
+		B2FF44042FAA6D7FC2129042 /* Pods_UABParkingFinder_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91CC0D2DBBBBE4B1C9A9F521 /* Pods_UABParkingFinder_iOS.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		92DD20661FF047BC0002159D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92DD20491FF047BB0002159D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92DD20501FF047BB0002159D;
+			remoteInfo = "UABParkingFinder-iOS";
+		};
+		92DD20711FF047BC0002159D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 92DD20491FF047BB0002159D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 92DD20501FF047BB0002159D;
+			remoteInfo = "UABParkingFinder-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		040343834B8205B75829539F /* Pods-UABParkingFinder-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UABParkingFinder-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-UABParkingFinder-iOS/Pods-UABParkingFinder-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		0A7ABF309B4B9BEFCE89ADF0 /* Pods-UABParkingFinder-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UABParkingFinder-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UABParkingFinder-iOSUITests/Pods-UABParkingFinder-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		4B05942596A8C2DBF0155592 /* Pods_UABParkingFinder_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UABParkingFinder_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		91CC0D2DBBBBE4B1C9A9F521 /* Pods_UABParkingFinder_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UABParkingFinder_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DD20511FF047BB0002159D /* UABParkingFinder-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UABParkingFinder-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DD20541FF047BB0002159D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		92DD20561FF047BB0002159D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92DD20591FF047BB0002159D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		92DD205B1FF047BC0002159D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		92DD205E1FF047BC0002159D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		92DD20601FF047BC0002159D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92DD20651FF047BC0002159D /* UABParkingFinder-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UABParkingFinder-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DD20691FF047BC0002159D /* UABParkingFinder_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UABParkingFinder_iOSTests.swift; sourceTree = "<group>"; };
+		92DD206B1FF047BC0002159D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92DD20701FF047BC0002159D /* UABParkingFinder-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "UABParkingFinder-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		92DD20741FF047BC0002159D /* UABParkingFinder_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UABParkingFinder_iOSUITests.swift; sourceTree = "<group>"; };
+		92DD20761FF047BC0002159D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		92DD20821FF049DD0002159D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9BE30ECA83DC046D64DE165F /* Pods-UABParkingFinder-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UABParkingFinder-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UABParkingFinder-iOS/Pods-UABParkingFinder-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		B5935B460F74265D40F649EE /* Pods-UABParkingFinder-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UABParkingFinder-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UABParkingFinder-iOSUITests/Pods-UABParkingFinder-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB6B9195391ADACC68549C81 /* Pods-UABParkingFinder-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UABParkingFinder-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UABParkingFinder-iOSTests/Pods-UABParkingFinder-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		F2AAA1473990A8D35A22D587 /* Pods_UABParkingFinder_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UABParkingFinder_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDCFC093148CF875C7768BC8 /* Pods-UABParkingFinder-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UABParkingFinder-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UABParkingFinder-iOSTests/Pods-UABParkingFinder-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		92DD204E1FF047BB0002159D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B2FF44042FAA6D7FC2129042 /* Pods_UABParkingFinder_iOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DD20621FF047BC0002159D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8069CD51FC10DB7E1C58FC0F /* Pods_UABParkingFinder_iOSTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DD206D1FF047BC0002159D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8A966CC8400BEBAB4398DF21 /* Pods_UABParkingFinder_iOSUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79C3CE90F9933519A5BA851A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9BE30ECA83DC046D64DE165F /* Pods-UABParkingFinder-iOS.debug.xcconfig */,
+				040343834B8205B75829539F /* Pods-UABParkingFinder-iOS.release.xcconfig */,
+				DB6B9195391ADACC68549C81 /* Pods-UABParkingFinder-iOSTests.debug.xcconfig */,
+				FDCFC093148CF875C7768BC8 /* Pods-UABParkingFinder-iOSTests.release.xcconfig */,
+				0A7ABF309B4B9BEFCE89ADF0 /* Pods-UABParkingFinder-iOSUITests.debug.xcconfig */,
+				B5935B460F74265D40F649EE /* Pods-UABParkingFinder-iOSUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		92DD20481FF047BB0002159D = {
+			isa = PBXGroup;
+			children = (
+				92DD20531FF047BB0002159D /* UABParkingFinder-iOS */,
+				92DD20681FF047BC0002159D /* UABParkingFinder-iOSTests */,
+				92DD20731FF047BC0002159D /* UABParkingFinder-iOSUITests */,
+				92DD20521FF047BB0002159D /* Products */,
+				79C3CE90F9933519A5BA851A /* Pods */,
+				E109C48FB3826CDB87246654 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		92DD20521FF047BB0002159D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				92DD20511FF047BB0002159D /* UABParkingFinder-iOS.app */,
+				92DD20651FF047BC0002159D /* UABParkingFinder-iOSTests.xctest */,
+				92DD20701FF047BC0002159D /* UABParkingFinder-iOSUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		92DD20531FF047BB0002159D /* UABParkingFinder-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				92DD20821FF049DD0002159D /* GoogleService-Info.plist */,
+				92DD20541FF047BB0002159D /* AppDelegate.swift */,
+				92DD20561FF047BB0002159D /* ViewController.swift */,
+				92DD20581FF047BB0002159D /* Main.storyboard */,
+				92DD205B1FF047BC0002159D /* Assets.xcassets */,
+				92DD205D1FF047BC0002159D /* LaunchScreen.storyboard */,
+				92DD20601FF047BC0002159D /* Info.plist */,
+			);
+			path = "UABParkingFinder-iOS";
+			sourceTree = "<group>";
+		};
+		92DD20681FF047BC0002159D /* UABParkingFinder-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				92DD20691FF047BC0002159D /* UABParkingFinder_iOSTests.swift */,
+				92DD206B1FF047BC0002159D /* Info.plist */,
+			);
+			path = "UABParkingFinder-iOSTests";
+			sourceTree = "<group>";
+		};
+		92DD20731FF047BC0002159D /* UABParkingFinder-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				92DD20741FF047BC0002159D /* UABParkingFinder_iOSUITests.swift */,
+				92DD20761FF047BC0002159D /* Info.plist */,
+			);
+			path = "UABParkingFinder-iOSUITests";
+			sourceTree = "<group>";
+		};
+		E109C48FB3826CDB87246654 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91CC0D2DBBBBE4B1C9A9F521 /* Pods_UABParkingFinder_iOS.framework */,
+				F2AAA1473990A8D35A22D587 /* Pods_UABParkingFinder_iOSTests.framework */,
+				4B05942596A8C2DBF0155592 /* Pods_UABParkingFinder_iOSUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		92DD20501FF047BB0002159D /* UABParkingFinder-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92DD20791FF047BC0002159D /* Build configuration list for PBXNativeTarget "UABParkingFinder-iOS" */;
+			buildPhases = (
+				031F5B15FC0B4EF2B1825732 /* [CP] Check Pods Manifest.lock */,
+				92DD204D1FF047BB0002159D /* Sources */,
+				92DD204E1FF047BB0002159D /* Frameworks */,
+				92DD204F1FF047BB0002159D /* Resources */,
+				B190B91FA9E875AD429C767E /* [CP] Embed Pods Frameworks */,
+				3B771CEDBB98725C8CDD5BAE /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "UABParkingFinder-iOS";
+			productName = "UABParkingFinder-iOS";
+			productReference = 92DD20511FF047BB0002159D /* UABParkingFinder-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		92DD20641FF047BC0002159D /* UABParkingFinder-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92DD207C1FF047BC0002159D /* Build configuration list for PBXNativeTarget "UABParkingFinder-iOSTests" */;
+			buildPhases = (
+				4CF353BDE00053FF10687EAD /* [CP] Check Pods Manifest.lock */,
+				92DD20611FF047BC0002159D /* Sources */,
+				92DD20621FF047BC0002159D /* Frameworks */,
+				92DD20631FF047BC0002159D /* Resources */,
+				8FFE083D18E541EB1A93984B /* [CP] Embed Pods Frameworks */,
+				F95570A1DA9A3E443E6B4BAC /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92DD20671FF047BC0002159D /* PBXTargetDependency */,
+			);
+			name = "UABParkingFinder-iOSTests";
+			productName = "UABParkingFinder-iOSTests";
+			productReference = 92DD20651FF047BC0002159D /* UABParkingFinder-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		92DD206F1FF047BC0002159D /* UABParkingFinder-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 92DD207F1FF047BC0002159D /* Build configuration list for PBXNativeTarget "UABParkingFinder-iOSUITests" */;
+			buildPhases = (
+				1C0AF2FB7FCA09493B1C4A53 /* [CP] Check Pods Manifest.lock */,
+				92DD206C1FF047BC0002159D /* Sources */,
+				92DD206D1FF047BC0002159D /* Frameworks */,
+				92DD206E1FF047BC0002159D /* Resources */,
+				4135B05A91DA03A961CC0E76 /* [CP] Embed Pods Frameworks */,
+				DC5BCC193AF46ECEE526F72D /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92DD20721FF047BC0002159D /* PBXTargetDependency */,
+			);
+			name = "UABParkingFinder-iOSUITests";
+			productName = "UABParkingFinder-iOSUITests";
+			productReference = 92DD20701FF047BC0002159D /* UABParkingFinder-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		92DD20491FF047BB0002159D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Rofael Aleezada";
+				TargetAttributes = {
+					92DD20501FF047BB0002159D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					92DD20641FF047BC0002159D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 92DD20501FF047BB0002159D;
+					};
+					92DD206F1FF047BC0002159D = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 92DD20501FF047BB0002159D;
+					};
+				};
+			};
+			buildConfigurationList = 92DD204C1FF047BB0002159D /* Build configuration list for PBXProject "UABParkingFinder-iOS" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 92DD20481FF047BB0002159D;
+			productRefGroup = 92DD20521FF047BB0002159D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				92DD20501FF047BB0002159D /* UABParkingFinder-iOS */,
+				92DD20641FF047BC0002159D /* UABParkingFinder-iOSTests */,
+				92DD206F1FF047BC0002159D /* UABParkingFinder-iOSUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		92DD204F1FF047BB0002159D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DD205F1FF047BC0002159D /* LaunchScreen.storyboard in Resources */,
+				92DD20831FF049DE0002159D /* GoogleService-Info.plist in Resources */,
+				92DD205C1FF047BC0002159D /* Assets.xcassets in Resources */,
+				92DD205A1FF047BB0002159D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DD20631FF047BC0002159D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DD206E1FF047BC0002159D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		031F5B15FC0B4EF2B1825732 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UABParkingFinder-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1C0AF2FB7FCA09493B1C4A53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UABParkingFinder-iOSUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B771CEDBB98725C8CDD5BAE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UABParkingFinder-iOS/Pods-UABParkingFinder-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4135B05A91DA03A961CC0E76 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UABParkingFinder-iOSUITests/Pods-UABParkingFinder-iOSUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CF353BDE00053FF10687EAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UABParkingFinder-iOSTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FFE083D18E541EB1A93984B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UABParkingFinder-iOSTests/Pods-UABParkingFinder-iOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B190B91FA9E875AD429C767E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-UABParkingFinder-iOS/Pods-UABParkingFinder-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UABParkingFinder-iOS/Pods-UABParkingFinder-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC5BCC193AF46ECEE526F72D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UABParkingFinder-iOSUITests/Pods-UABParkingFinder-iOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F95570A1DA9A3E443E6B4BAC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UABParkingFinder-iOSTests/Pods-UABParkingFinder-iOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		92DD204D1FF047BB0002159D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DD20571FF047BB0002159D /* ViewController.swift in Sources */,
+				92DD20551FF047BB0002159D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DD20611FF047BC0002159D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DD206A1FF047BC0002159D /* UABParkingFinder_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92DD206C1FF047BC0002159D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				92DD20751FF047BC0002159D /* UABParkingFinder_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		92DD20671FF047BC0002159D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92DD20501FF047BB0002159D /* UABParkingFinder-iOS */;
+			targetProxy = 92DD20661FF047BC0002159D /* PBXContainerItemProxy */;
+		};
+		92DD20721FF047BC0002159D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 92DD20501FF047BB0002159D /* UABParkingFinder-iOS */;
+			targetProxy = 92DD20711FF047BC0002159D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		92DD20581FF047BB0002159D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92DD20591FF047BB0002159D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		92DD205D1FF047BC0002159D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				92DD205E1FF047BC0002159D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		92DD20771FF047BC0002159D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		92DD20781FF047BC0002159D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		92DD207A1FF047BC0002159D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BE30ECA83DC046D64DE165F /* Pods-UABParkingFinder-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "UABParkingFinder-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.rofael.UABParkingFinder-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		92DD207B1FF047BC0002159D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 040343834B8205B75829539F /* Pods-UABParkingFinder-iOS.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "UABParkingFinder-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.rofael.UABParkingFinder-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		92DD207D1FF047BC0002159D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DB6B9195391ADACC68549C81 /* Pods-UABParkingFinder-iOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "UABParkingFinder-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.rofael.UABParkingFinder-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UABParkingFinder-iOS.app/UABParkingFinder-iOS";
+			};
+			name = Debug;
+		};
+		92DD207E1FF047BC0002159D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDCFC093148CF875C7768BC8 /* Pods-UABParkingFinder-iOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "UABParkingFinder-iOSTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.rofael.UABParkingFinder-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/UABParkingFinder-iOS.app/UABParkingFinder-iOS";
+			};
+			name = Release;
+		};
+		92DD20801FF047BC0002159D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A7ABF309B4B9BEFCE89ADF0 /* Pods-UABParkingFinder-iOSUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "UABParkingFinder-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.rofael.UABParkingFinder-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "UABParkingFinder-iOS";
+			};
+			name = Debug;
+		};
+		92DD20811FF047BC0002159D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5935B460F74265D40F649EE /* Pods-UABParkingFinder-iOSUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "UABParkingFinder-iOSUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "net.rofael.UABParkingFinder-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "UABParkingFinder-iOS";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		92DD204C1FF047BB0002159D /* Build configuration list for PBXProject "UABParkingFinder-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92DD20771FF047BC0002159D /* Debug */,
+				92DD20781FF047BC0002159D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92DD20791FF047BC0002159D /* Build configuration list for PBXNativeTarget "UABParkingFinder-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92DD207A1FF047BC0002159D /* Debug */,
+				92DD207B1FF047BC0002159D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92DD207C1FF047BC0002159D /* Build configuration list for PBXNativeTarget "UABParkingFinder-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92DD207D1FF047BC0002159D /* Debug */,
+				92DD207E1FF047BC0002159D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		92DD207F1FF047BC0002159D /* Build configuration list for PBXNativeTarget "UABParkingFinder-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				92DD20801FF047BC0002159D /* Debug */,
+				92DD20811FF047BC0002159D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 92DD20491FF047BB0002159D /* Project object */;
+}
