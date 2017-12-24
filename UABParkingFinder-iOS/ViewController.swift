@@ -7,12 +7,30 @@
 //
 
 import UIKit
+import Foundation
 
 class ViewController: UIViewController {
+    
+    func WakeUpHeroku() {
+        // Wakes up Heroku server if idle
+        let request = URLRequest(url: URL(string: "http://uab-parking-finder-server.herokuapp.com")!)
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            if (error != nil) {
+                print("Cannot connect to ingest server: ", terminator:"")
+                print(error!)
+            }
+            print("Ingest server online")
+        }
+        task.resume()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        print("Contacting ingest server...")
+        WakeUpHeroku()
     }
 
     override func didReceiveMemoryWarning() {
