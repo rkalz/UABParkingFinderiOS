@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainMenuViewController.swift
 //  UABParkingFinder-iOS
 //
 //  Created by Rofael Aleezada on 12/24/17.
@@ -9,7 +9,7 @@
 import UIKit
 import Foundation
 
-class ViewController: UIViewController {
+class MainMenuViewController: UIViewController {
     
     func WakeUpHeroku() {
         // Wakes up Heroku server if idle

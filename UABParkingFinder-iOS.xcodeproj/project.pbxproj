@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		8069CD51FC10DB7E1C58FC0F /* Pods_UABParkingFinder_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2AAA1473990A8D35A22D587 /* Pods_UABParkingFinder_iOSTests.framework */; };
 		8A966CC8400BEBAB4398DF21 /* Pods_UABParkingFinder_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4B05942596A8C2DBF0155592 /* Pods_UABParkingFinder_iOSUITests.framework */; };
+		92099E081FF06B6E00CC7F5D /* DataStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92099E071FF06B6E00CC7F5D /* DataStructs.swift */; };
+		92099E0A1FF070B100CC7F5D /* ParkingMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92099E091FF070B100CC7F5D /* ParkingMenuViewController.swift */; };
 		92DD20551FF047BB0002159D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD20541FF047BB0002159D /* AppDelegate.swift */; };
-		92DD20571FF047BB0002159D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD20561FF047BB0002159D /* ViewController.swift */; };
+		92DD20571FF047BB0002159D /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92DD20561FF047BB0002159D /* MainMenuViewController.swift */; };
 		92DD205A1FF047BB0002159D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DD20581FF047BB0002159D /* Main.storyboard */; };
 		92DD205C1FF047BC0002159D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 92DD205B1FF047BC0002159D /* Assets.xcassets */; };
 		92DD205F1FF047BC0002159D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 92DD205D1FF047BC0002159D /* LaunchScreen.storyboard */; };
@@ -42,9 +44,11 @@
 		0A7ABF309B4B9BEFCE89ADF0 /* Pods-UABParkingFinder-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UABParkingFinder-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UABParkingFinder-iOSUITests/Pods-UABParkingFinder-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		4B05942596A8C2DBF0155592 /* Pods_UABParkingFinder_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UABParkingFinder_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		91CC0D2DBBBBE4B1C9A9F521 /* Pods_UABParkingFinder_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UABParkingFinder_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		92099E071FF06B6E00CC7F5D /* DataStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStructs.swift; sourceTree = "<group>"; };
+		92099E091FF070B100CC7F5D /* ParkingMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkingMenuViewController.swift; sourceTree = "<group>"; };
 		92DD20511FF047BB0002159D /* UABParkingFinder-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UABParkingFinder-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		92DD20541FF047BB0002159D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		92DD20561FF047BB0002159D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		92DD20561FF047BB0002159D /* MainMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		92DD20591FF047BB0002159D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92DD205B1FF047BC0002159D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		92DD205E1FF047BC0002159D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,9 +133,11 @@
 		92DD20531FF047BB0002159D /* UABParkingFinder-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				92099E091FF070B100CC7F5D /* ParkingMenuViewController.swift */,
+				92099E071FF06B6E00CC7F5D /* DataStructs.swift */,
 				92DD20821FF049DD0002159D /* GoogleService-Info.plist */,
 				92DD20541FF047BB0002159D /* AppDelegate.swift */,
-				92DD20561FF047BB0002159D /* ViewController.swift */,
+				92DD20561FF047BB0002159D /* MainMenuViewController.swift */,
 				92DD20581FF047BB0002159D /* Main.storyboard */,
 				92DD205B1FF047BC0002159D /* Assets.xcassets */,
 				92DD205D1FF047BC0002159D /* LaunchScreen.storyboard */,
@@ -466,7 +472,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92DD20571FF047BB0002159D /* ViewController.swift in Sources */,
+				92DD20571FF047BB0002159D /* MainMenuViewController.swift in Sources */,
+				92099E081FF06B6E00CC7F5D /* DataStructs.swift in Sources */,
+				92099E0A1FF070B100CC7F5D /* ParkingMenuViewController.swift in Sources */,
 				92DD20551FF047BB0002159D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pct-iL-eFH">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="pct-iL-eFH">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--MainMenuView-->
         <scene sceneID="iUk-I0-B4X">
             <objects>
-                <viewController storyboardIdentifier="mainMenuView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pct-iL-eFH" userLabel="MainMenuView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainMenuView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pct-iL-eFH" userLabel="MainMenuView" customClass="MainMenuViewController" customModule="UABParkingFinder_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xse-s5-OdD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,15 +90,18 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4bi-PM-8WH"/>
                     </view>
+                    <connections>
+                        <segue destination="Zxt-fS-EMY" kind="show" identifier="mainToParkingSegue" id="bpK-FT-JZs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPm-67-TEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="60" y="350"/>
         </scene>
         <!--ParkingMenuView-->
         <scene sceneID="5cP-Pr-QZz">
             <objects>
-                <viewController storyboardIdentifier="parkingMenuView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zxt-fS-EMY" userLabel="ParkingMenuView" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="parkingMenuView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zxt-fS-EMY" userLabel="ParkingMenuView" customClass="ParkingMenuViewController" customModule="UABParkingFinder_iOS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZSP-Fu-dXc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,15 +121,6 @@
                                 <rect key="frame" x="0.0" y="386" width="375" height="47"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="lotTitleNaviBar" translatesAutoresizingMaskIntoConstraints="NO" id="nCO-uP-u44" userLabel="ParkingMenuNaviBar">
-                                <rect key="frame" x="0.0" y="-3" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="LotName" id="mIQ-L8-HzT" userLabel="ParkingLotTitle">
-                                        <barButtonItem key="backBarButtonItem" title="Back" id="ry1-3a-Wi3"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhe-XD-zM0" userLabel="SendReportButton">
                                 <rect key="frame" x="164" y="427" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -171,6 +165,21 @@
                                 <rect key="frame" x="0.0" y="41" width="375" height="626"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="parkingNameLabel" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="LotName" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wkF-Ev-ylF" userLabel="ParkingNameLabel">
+                                <rect key="frame" x="139" y="0.0" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="goBackButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obd-Au-uEb" userLabel="GoBackButton">
+                                <rect key="frame" x="0.0" y="2" width="46" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <segue destination="pct-iL-eFH" kind="show" id="fD2-Dd-m72"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qYd-uy-7YH"/>
