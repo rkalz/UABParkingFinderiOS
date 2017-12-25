@@ -27,7 +27,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 </scrollView>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="parkingLotCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="parkingLotCellProto" rowHeight="91" id="qug-Pg-yna" userLabel="ParkingLotCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="parkingLotCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="parkingLotCellProto" rowHeight="91" id="qug-Pg-yna" userLabel="ParkingLotCell" customClass="MainMenuTableViewCell" customModule="UABParkingFinder_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="91"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qug-Pg-yna" id="rf5-Vj-VqA">
@@ -75,8 +75,20 @@
                                         <accessibility key="accessibilityConfiguration" identifier="parkingLotCell">
                                             <accessibilityTraits key="traits" button="YES"/>
                                         </accessibility>
+                                        <connections>
+                                            <outlet property="categories" destination="ImN-v9-UaX" id="TeI-QX-79x"/>
+                                            <outlet property="distance" destination="5Gr-fV-Ia0" id="i2B-x0-xcv"/>
+                                            <outlet property="lastReport" destination="mgT-h4-h5O" id="EOC-hw-U2n"/>
+                                            <outlet property="map" destination="8yA-bx-DNR" id="1NM-gY-HGk"/>
+                                            <outlet property="name" destination="BBG-ot-NaB" id="lvd-m6-j06"/>
+                                            <outlet property="statusImg" destination="lvN-dD-D4q" id="NLO-zx-FQJ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="pct-iL-eFH" id="Hyd-W0-68h"/>
+                                    <outlet property="delegate" destination="pct-iL-eFH" id="QR5-eb-SZ5"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="mainMenuLabel" text="UAB Parking Finder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sve-fk-x2k" userLabel="MainMenuLabel">
                                 <rect key="frame" x="16" y="29" width="197" height="21"/>
