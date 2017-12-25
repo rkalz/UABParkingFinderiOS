@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import FirebaseDatabase
 
 class MainMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var map: UIImageView!
@@ -21,6 +22,8 @@ class MainMenuTableViewCell: UITableViewCell {
 class MainMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var lots = [Lot]()
+    var ref: DatabaseReference!
+    @IBOutlet weak var listOfLots: UITableView!
     
     // Contacts Heroku ingest server
     func WakeUpHeroku() {
@@ -43,7 +46,9 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         print("Downloading parking location data...")
         
         let request = URLRequest(url: URL(string: "http://rofael.net/projects/uabpf/parking.json")!)
-        let task = URLSession.shared.dataTask(with: request) {
+        
+        // Completion handler means code won't run until after data is downloaded
+        let completion: (Data?, URLResponse?, Error?) -> Void = {
             (data, response, error) in
             do {
                 let jsonPlaces = try JSONDecoder().decode(JSONParkingContainer.self, from: data!)
@@ -51,19 +56,31 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
                     self.lots.append(place.toLot())
                 }
                 print("Parking data received!")
+                DispatchQueue.main.async {
+                    self.listOfLots.reloadData()
+                }
             } catch {
                 print(error)
             }
         }
+        let task = URLSession.shared.dataTask(with: request, completionHandler: completion)
         task.resume()
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        WakeUpHeroku()
+        GetParkingData()
+        ref = Database.database().reference()
+        
+        self.listOfLots.delegate = self
+        self.listOfLots.dataSource = self
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        WakeUpHeroku()
-        GetParkingData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -71,18 +88,37 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
-    /*func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lots.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let parking = lots[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "parkingLotCellProto", for: indexPath) as! MainMenuTableViewCell
-        cell.map.image = UIImage(named: "unk")
-        cell.name.text = parking.name
-        cell.statusImg.image = UIImage(named: "unk")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "parkingLotCell", for: indexPath) as!         MainMenuTableViewCell
+        
+        cell.map?.contentMode = .scaleAspectFill
+        cell.map?.clipsToBounds = true
+        cell.map?.image = UIImage(named: "unk")
+        
+        cell.name?.text = parking.name
+        cell.categories?.text = "Placeholder, Placeholder, Placeholder"
+        cell.lastReport?.text = "Last report: 00 days and 0 hours ago"
+        cell.distance?.text = "0.00mi"
+        
+        cell.statusImg?.image = UIImage(named: "unk")
+        cell.statusImg?.clipsToBounds = true
+        cell.statusImg?.contentMode = .scaleAspectFill
+        
         return cell
-    }*/
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
 
 }
