@@ -11,6 +11,7 @@ import Foundation
 import FirebaseDatabase
 import SDWebImage
 
+// Allows manipulation of lot cell
 class MainMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var map: UIImageView!
     @IBOutlet weak var name: UILabel!
@@ -25,6 +26,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     var lots = [Lot]()
     var ref: DatabaseReference!
     @IBOutlet weak var listOfLots: UITableView!
+    var refreshControl: UIRefreshControl!
     
     // Contacts Heroku ingest server
     func WakeUpHeroku() {
@@ -58,6 +60,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 }
                 print("Parking data received!")
                 DispatchQueue.main.async {
+                    // Must reload on main thread
                     self.listOfLots.reloadData()
                 }
             } catch {
@@ -71,10 +74,12 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     override func loadView() {
         super.loadView()
         
+        // Make sure ingest is online, download lots, and connect to Firebase
         WakeUpHeroku()
         GetParkingData()
         ref = Database.database().reference()
         
+        // Tells list of lots to use this
         self.listOfLots.delegate = self
         self.listOfLots.dataSource = self
     }
@@ -82,6 +87,12 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        // Add pull to refresh to list of lots
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(MainMenuViewController.refresh), for: UIControlEvents.valueChanged)
+        self.listOfLots.addSubview(refreshControl)
     }
 
     override func didReceiveMemoryWarning() {
@@ -94,6 +105,9 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        // Height of each cell
+        // TODO: Make sure this works across several screen sizes
+        
         return 80
     }
     
@@ -102,6 +116,9 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Populates each cell of the lots table
+        // TODO: Get time of last update and overall status fron Firebase
+        
         let parking = lots[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingLotCell", for: indexPath) as! MainMenuTableViewCell
         
@@ -114,10 +131,17 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         })
         
         cell.name?.text = parking.name
-        
         cell.statusImg?.image = UIImage(named: "unk")
         
         return cell
+    }
+    
+    @objc func refresh(sender: AnyObject) {
+        // What to do on refresh
+        // TODO: See cellForRowAt indexPath
+        
+        self.listOfLots.reloadData()
+        refreshControl.endRefreshing()
     }
     
     

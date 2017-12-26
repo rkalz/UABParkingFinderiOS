@@ -41,7 +41,7 @@ struct Report {
     init(inLot: Lot, inStat: Int) {
         parking = inLot
         status = inStat
-        // set time to current time in milliseconds
+        time = Int64(Date().timeIntervalSince1970 * 1000)
     }
     
     init(inLot: Lot, inStat: Int, inTime: Int64) {
@@ -66,8 +66,50 @@ struct Report {
     
     // Converts UNIX millsecond time to something readable
     func readableLastReportTime() -> String {
+        let curTime = Int64(Date().timeIntervalSince1970 * 1000)
+        let diff = curTime - self.time
         
-        return ""
+        var seconds = diff / 1000
+        var minutes = seconds / 60
+        var hours = minutes / 60
+        let days = hours / 24
+        
+        var left: String
+        var right: String
+        
+        if (days > 0) {
+            hours = hours % 24
+            if ( days == 1 ) { left = " day and " }
+            else { left = " day and " }
+            
+            if ( hours == 1 ) { right = " hour ago" }
+            else { right = " hours ago" }
+            
+            return String(days) + left + String(hours) + right
+        } else if (hours > 0) {
+            minutes = minutes % 60
+            if (hours == 1) { left = " hour and " }
+            else { left = " hours and "}
+            
+            if ( minutes == 1 ) { right = " minute ago" }
+            else { right = " minutes ago" }
+            
+            return String(hours) + left + String(minutes) + right
+        } else if (minutes > 0) {
+            seconds = seconds % 60
+            if (minutes == 1) { left = " minute ago" }
+            else { left = " minutes ago" }
+            
+            if (seconds == 1) { right = " second ago" }
+            else { right = " seconds ago" }
+            
+            return String(minutes) + left + String(seconds) + right
+        } else {
+            if (seconds == 1) { right = " second ago" }
+            else { right = " seconds ago" }
+            
+            return String(seconds) + right
+        }
     }
 }
 
