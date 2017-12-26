@@ -8,6 +8,10 @@ target 'UABParkingFinder-iOS' do
   # Pods for UABParkingFinder-iOS
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Performance'
+  pod 'Fabric', '~> 1.7.2'
+  pod 'Crashlytics', '~> 3.9.3'
+
   pod 'SDWebImage/Core'
 
   target 'UABParkingFinder-iOSTests' do

@@ -99,8 +99,8 @@ struct Report {
             return String(hours) + left + String(minutes) + right
         } else if (minutes > 0) {
             seconds = seconds % 60
-            if (minutes == 1) { left = " minute ago" }
-            else { left = " minutes ago" }
+            if (minutes == 1) { left = " minute and " }
+            else { left = " minutes and " }
             
             if (seconds == 1) { right = " second ago" }
             else { right = " seconds ago" }
