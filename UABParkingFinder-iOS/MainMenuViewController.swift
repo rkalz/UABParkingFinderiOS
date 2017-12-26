@@ -9,6 +9,7 @@
 import UIKit
 import Foundation
 import FirebaseDatabase
+import SDWebImage
 
 class MainMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var map: UIImageView!
@@ -92,33 +93,34 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         return 1
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lots.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let parking = lots[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "parkingLotCell", for: indexPath) as!         MainMenuTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "parkingLotCell", for: indexPath) as! MainMenuTableViewCell
         
-        cell.map?.contentMode = .scaleAspectFill
-        cell.map?.clipsToBounds = true
-        cell.map?.image = UIImage(named: "unk")
+        // Place Google Maps image
+        let mapURL = generateSingleGMapsURL(lat: parking.lat, lon: parking.lon, size: 60)
+        cell.map?.sd_setImage(with: mapURL,
+                              placeholderImage: UIImage(named: "unk"),
+                              completed: { (image, error, cacheType, imageURL) in
+                                if (error != nil) { print(error!) }
+        })
         
         cell.name?.text = parking.name
-        cell.categories?.text = "Placeholder, Placeholder, Placeholder"
-        cell.lastReport?.text = "Last report: 00 days and 0 hours ago"
-        cell.distance?.text = "0.00mi"
         
         cell.statusImg?.image = UIImage(named: "unk")
-        cell.statusImg?.clipsToBounds = true
-        cell.statusImg?.contentMode = .scaleAspectFill
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
-    }
+    
 
 
 }

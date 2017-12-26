@@ -8,6 +8,7 @@ target 'UABParkingFinder-iOS' do
   # Pods for UABParkingFinder-iOS
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'SDWebImage/Core'
 
   target 'UABParkingFinder-iOSTests' do
     inherit! :search_paths
