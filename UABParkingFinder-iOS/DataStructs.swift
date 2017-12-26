@@ -80,7 +80,7 @@ struct Report {
         if (days > 0) {
             hours = hours % 24
             if ( days == 1 ) { left = " day and " }
-            else { left = " day and " }
+            else { left = " days and " }
             
             if ( hours == 1 ) { right = " hour ago" }
             else { right = " hours ago" }

@@ -100,6 +100,45 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    // Get most recent report time
+    func updateReportTime(parking: Lot, cell: MainMenuTableViewCell) {
+        ref.child("reports").child(parking.name).queryLimited(toLast: 1).observe(DataEventType.value,
+            with: { (snapshot) in
+                var report: Report
+                let result = snapshot.value as? NSDictionary
+                for (_, rep) in result! {
+                    let time = (rep as! NSDictionary)["reportTime"] as! Int64
+                    let status = (rep as! NSDictionary)["status"] as! Int
+                                                                                        
+                    report = Report(inLot: parking, inStat: status, inTime: time)
+                    cell.lastReport?.text = "Last report: " + report.readableLastReportTime()
+            }
+        })
+    }
+    
+    // Get most recent overall status
+    func updateStatusImage(parking: Lot, cell: MainMenuTableViewCell) {
+        ref.child("overall").child(parking.name).observe(DataEventType.value,
+            with: { (snapshot) in
+                let status = snapshot.value as! Int
+                
+                switch(status) {
+                    case 0:
+                        cell.statusImg?.image = UIImage(named: "low")
+                        break
+                    case 1:
+                        cell.statusImg?.image = UIImage(named: "med")
+                        break
+                    case 2:
+                        cell.statusImg?.image = UIImage(named: "high")
+                        break
+                    default:
+                        cell.statusImg?.image = UIImage(named: "unk")
+                        break
+                }
+            })
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -117,7 +156,6 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Populates each cell of the lots table
-        // TODO: Get time of last update and overall status fron Firebase
         
         let parking = lots[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingLotCell", for: indexPath) as! MainMenuTableViewCell
@@ -132,13 +170,14 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         
         cell.name?.text = parking.name
         cell.statusImg?.image = UIImage(named: "unk")
+        updateReportTime(parking: parking, cell: cell)
+        updateStatusImage(parking: parking, cell: cell)
         
         return cell
     }
     
     @objc func refresh(sender: AnyObject) {
         // What to do on refresh
-        // TODO: See cellForRowAt indexPath
         
         self.listOfLots.reloadData()
         refreshControl.endRefreshing()
