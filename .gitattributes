@@ -1,0 +1,5 @@
+UABParkingFinder-iOS.xcodeproj/* linguist-vendored=true
+UABParkingFunder-iOS.xcworkspace/* linguist-vendored=true
+Podfile linguist-vendored=true
+UABParkingFinder-iOS/Assets.xcassets/*.json linguist-vendored=true
+*.plist linguist-vendored=true
