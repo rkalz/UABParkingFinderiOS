@@ -23,6 +23,7 @@ struct Lot {
         status = -1
     }
     
+    // Used by JSON intermediate
     init(inName: String, inLat: String, inLon: String) {
         name = inName
         lat = Double(inLat)
@@ -65,6 +66,7 @@ struct Report {
     }
     
     // Converts UNIX millsecond time to something readable
+    // Relative to current time
     func readableLastReportTime() -> String {
         let curTime = Int64(Date().timeIntervalSince1970 * 1000)
         let diff = curTime - self.time

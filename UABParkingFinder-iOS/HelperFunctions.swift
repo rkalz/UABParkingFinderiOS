@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Takes latitude, longitude, and a size to return a Google Maps image
+// of those coordinates of size x size
 func generateSingleGMapsURL(lat: Double, lon: Double, size: Int) -> URL? {
     
     let path = "https://maps.googleapis.com/maps/api/staticmap?center=" + String(lat) + "," + String(lon) + "&markers=color:red|" + String(lat) +

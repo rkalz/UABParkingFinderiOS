@@ -58,9 +58,10 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 for place in jsonPlaces.data {
                     self.lots.append(place.toLot())
                 }
+                
                 print("Parking data received!")
+                // Must reload on main thread
                 DispatchQueue.main.async {
-                    // Must reload on main thread
                     self.listOfLots.reloadData()
                 }
             } catch {
@@ -71,6 +72,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         task.resume()
     }
     
+    // Runs as view is loading
     override func loadView() {
         super.loadView()
         
@@ -79,11 +81,12 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         GetParkingData()
         ref = Database.database().reference()
         
-        // Tells list of lots to use this
+        // Tells list of lots to use this controller 
         self.listOfLots.delegate = self
         self.listOfLots.dataSource = self
     }
-
+    
+    // Runs after view successfully loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -139,23 +142,25 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
             })
     }
     
+    // Number of sections in table
+    // Could be useful in future (categorization)
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
+    // Height of each cell
+    // TODO: Make sure this works across several screen sizes
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        // Height of each cell
-        // TODO: Make sure this works across several screen sizes
-        
         return 80
     }
     
+    // Number of rows in table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return lots.count
     }
     
+    // Populates each cell of the lots table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Populates each cell of the lots table
         
         let parking = lots[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "parkingLotCell", for: indexPath) as! MainMenuTableViewCell
@@ -176,8 +181,8 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    // Actions performed on refresh
     @objc func refresh(sender: AnyObject) {
-        // What to do on refresh
         
         self.listOfLots.reloadData()
         refreshControl.endRefreshing()
