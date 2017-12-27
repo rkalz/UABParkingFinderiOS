@@ -8,6 +8,8 @@
 
 import UIKit
 import Foundation
+import CoreLocation
+
 import FirebaseDatabase
 import SDWebImage
 
@@ -21,11 +23,13 @@ class MainMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var distance: UILabel!
 }
 
-class MainMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     var lots = [Lot]()
+    var distances = [Double]()
     var ref: DatabaseReference!
     var refreshControl: UIRefreshControl!
+    let manager = CLLocationManager()
     
     @IBOutlet weak var listOfLots: UITableView!
     
@@ -58,6 +62,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 let jsonPlaces = try JSONDecoder().decode(JSONParkingContainer.self, from: data!)
                 for place in jsonPlaces.data {
                     self.lots.append(place.toLot())
+                    self.distances.append(0)
                 }
                 
                 print("Parking data received!")
@@ -97,6 +102,12 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.addTarget(self, action: #selector(MainMenuViewController.refresh), for: UIControlEvents.valueChanged)
         self.listOfLots.addSubview(refreshControl)
+        
+        // Setup location service
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
     }
 
     override func didReceiveMemoryWarning() {
@@ -178,6 +189,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         cell.statusImg?.image = UIImage(named: "unk")
         updateReportTime(parking: parking, cell: cell)
         updateStatusImage(parking: parking, cell: cell)
+        cell.distance?.text = readableDistance(distance: distances[indexPath.row])
         
         return cell
     }
@@ -200,9 +212,25 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         
         self.listOfLots.reloadData()
         refreshControl.endRefreshing()
+        
     }
     
-    
+    // Performs operation when location is updated
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let curLoc = locations[0]
+        
+        var pos: Int = 0
+        for lot in lots {
+            let lotLoc = CLLocation(latitude: lot.lat, longitude: lot.lon)
+            
+            // Get distance and convert to feet
+            distances[pos] = curLoc.distance(from: lotLoc) / 0.3048
+            pos += 1
+        }
+        self.manager.stopUpdatingLocation()
+        self.listOfLots.reloadData()
+        
+    }
 
 
 }

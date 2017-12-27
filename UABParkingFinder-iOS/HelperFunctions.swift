@@ -17,3 +17,19 @@ func generateSingleGMapsURL(lat: Double, lon: Double, size: Int) -> URL? {
     
     return URL(string: path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
 }
+
+// Converts distance in feet to a readable string in the form "X.XXmi/ft"
+func readableDistance(distance: Double) -> String {
+    var output = distance
+    
+    if (distance > 1000) {
+        output = output / (5280 as Double)
+        output = round(output * 100) / (100 as Double)
+        return String(output) + "mi"
+        
+    } else {
+        output = round(output * 100) / (100 as Double)
+        return String(output) + "ft"
+    }
+    
+}
