@@ -13,13 +13,21 @@
         <!--MainMenuView-->
         <scene sceneID="iUk-I0-B4X">
             <objects>
-                <viewController storyboardIdentifier="mainMenuView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pct-iL-eFH" userLabel="MainMenuView" customClass="MainMenuViewController" customModule="UABParkingFinder_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainMenuView" title="MainMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="pct-iL-eFH" userLabel="MainMenuView" customClass="MainMenuViewController" customModule="UABParkingFinder_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xse-s5-OdD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="mainMenuLabel" text="UAB Parking Finder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sve-fk-x2k" userLabel="MainMenuLabel">
+                                <rect key="frame" x="16" y="20" width="197" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="appTitle" label="UAB Parking Finder"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="listOfLots" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="T7k-Q4-DGA" userLabel="ListOfLots">
-                                <rect key="frame" x="0.0" y="58" width="320" height="598"/>
+                                <rect key="frame" x="0.0" y="49" width="320" height="598"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <scrollView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="lotScrollView" id="PWC-nJ-aKg" userLabel="LotScrollView">
@@ -90,14 +98,6 @@
                                     <outlet property="delegate" destination="pct-iL-eFH" id="QR5-eb-SZ5"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="mainMenuLabel" text="UAB Parking Finder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sve-fk-x2k" userLabel="MainMenuLabel">
-                                <rect key="frame" x="16" y="29" width="197" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <accessibility key="accessibilityConfiguration" identifier="appTitle" label="UAB Parking Finder"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
@@ -105,7 +105,6 @@
                     </view>
                     <connections>
                         <outlet property="listOfLots" destination="T7k-Q4-DGA" id="464-dr-45W"/>
-                        <segue destination="Zxt-fS-EMY" kind="show" identifier="mainToParkingSegue" id="bpK-FT-JZs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RPm-67-TEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -115,44 +114,44 @@
         <!--ParkingMenuView-->
         <scene sceneID="5cP-Pr-QZz">
             <objects>
-                <viewController storyboardIdentifier="parkingMenuView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zxt-fS-EMY" userLabel="ParkingMenuView" customClass="ParkingMenuViewController" customModule="UABParkingFinder_iOS" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ParkingMenuView" title="ParkingMenuViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Zxt-fS-EMY" userLabel="ParkingMenuView" customClass="ParkingMenuViewController" customModule="UABParkingFinder_iOS" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZSP-Fu-dXc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="lotNameLabel" text="LotName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fue-ub-5dc" userLabel="LotNameLabel">
-                                <rect key="frame" x="78" y="12" width="165" height="21"/>
+                                <rect key="frame" x="78" y="58" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="lotBothLocationsMap" translatesAutoresizingMaskIntoConstraints="NO" id="G4n-du-XHl" userLabel="LotMapToImage">
-                                <rect key="frame" x="37" y="49" width="253" height="249"/>
+                                <rect key="frame" x="34" y="87" width="253" height="249"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="lotStatusLabel" text="LotStatus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkz-xT-boe" userLabel="LotStatusLabel">
-                                <rect key="frame" x="78" y="306" width="165" height="21"/>
+                                <rect key="frame" x="78" y="344" width="165" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="seleteStatusView" translatesAutoresizingMaskIntoConstraints="NO" id="Zdl-pp-qhZ" userLabel="SelectStatus">
-                                <rect key="frame" x="0.0" y="335" width="320" height="47"/>
+                                <rect key="frame" x="0.0" y="373" width="320" height="47"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhe-XD-zM0" userLabel="SendReportButton">
-                                <rect key="frame" x="137" y="375" width="46" height="30"/>
+                                <rect key="frame" x="137" y="414" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Send"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="parkingReportsView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7D1-B1-j4T" userLabel="ParkingReportsView">
-                                <rect key="frame" x="0.0" y="404" width="320" height="357"/>
+                                <rect key="frame" x="0.0" y="452" width="320" height="357"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reportsC" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reportsCellProto" id="lPv-x3-eCB" userLabel="ReportsCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="reportsCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="reportCell" id="lPv-x3-eCB" userLabel="ReportsCell" customClass="ParkingMenuTableViewCell" customModule="UABParkingFinder_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="lPv-x3-eCB" id="1y9-aR-M5j">
@@ -174,26 +173,48 @@
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="reportStatusImage" translatesAutoresizingMaskIntoConstraints="NO" id="sd4-y4-tgX" userLabel="ReportStatusImage">
-                                                    <rect key="frame" x="308" y="4" width="30" height="29"/>
+                                                    <rect key="frame" x="281" y="4" width="30" height="29"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="reportStatusImage" destination="sd4-y4-tgX" id="VIQ-bS-1Q4"/>
+                                            <outlet property="reportTextLabel" destination="643-gB-bTA" id="YQU-Ue-AOJ"/>
+                                            <outlet property="reportTimeLabel" destination="wlw-lB-g7Q" id="iaU-WD-IJs"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="goBackButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obd-Au-uEb" userLabel="GoBackButton">
-                                <rect key="frame" x="0.0" y="2" width="46" height="40"/>
+                                <rect key="frame" x="0.0" y="46" width="46" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Back"/>
                                 <connections>
-                                    <segue destination="pct-iL-eFH" kind="show" id="fD2-Dd-m72"/>
+                                    <segue destination="pct-iL-eFH" kind="show" identifier="ParkingToMainSegue" id="fD2-Dd-m72"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="mainMenuLabel" text="UAB Parking Finder" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IE-uD-Mi6" userLabel="MainMenuLabel">
+                                <rect key="frame" x="16" y="20" width="197" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <accessibility key="accessibilityConfiguration" identifier="appTitle" label="UAB Parking Finder"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="qYd-uy-7YH"/>
                     </view>
+                    <connections>
+                        <outlet property="backButton" destination="obd-Au-uEb" id="Zmu-T4-AmS"/>
+                        <outlet property="listOfReports" destination="7D1-B1-j4T" id="yAe-Dy-cL3"/>
+                        <outlet property="lotMapImage" destination="G4n-du-XHl" id="UGm-Yp-eb0"/>
+                        <outlet property="lotNameLabel" destination="fue-ub-5dc" id="8uf-WQ-L4s"/>
+                        <outlet property="lotStatusLabel" destination="Mkz-xT-boe" id="bzh-Eq-q1l"/>
+                        <outlet property="selectStatusPicker" destination="Zdl-pp-qhZ" id="fth-p2-Rmz"/>
+                        <outlet property="sendReportButton" destination="vhe-XD-zM0" id="YUS-Ha-ZFG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3P0-kA-KNV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -25,8 +25,9 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     
     var lots = [Lot]()
     var ref: DatabaseReference!
-    @IBOutlet weak var listOfLots: UITableView!
     var refreshControl: UIRefreshControl!
+    
+    @IBOutlet weak var listOfLots: UITableView!
     
     // Contacts Heroku ingest server
     func WakeUpHeroku() {
@@ -179,6 +180,19 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         updateStatusImage(parking: parking, cell: cell)
         
         return cell
+    }
+    
+    // Action performed when cell is pressed
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let destination = storyboard.instantiateViewController(withIdentifier: "ParkingMenuView") as! ParkingMenuViewController
+        destination.lotName = lots[indexPath.row].name
+        
+        self.present(destination, animated: true, completion: nil)
+        
     }
     
     // Actions performed on refresh
