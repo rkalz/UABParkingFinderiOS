@@ -30,11 +30,26 @@ struct Lot {
         lon = Double(inLon)
         status = -1
     }
+    
+    // String representation of status
+    func viewStatus() -> String {
+        switch(status) {
+        case 0:
+            return "Somewhat empty"
+        case 1:
+            return "Filling up"
+        case 2:
+            return "Almost full"
+        default:
+            return "How full is the parking lot?"
+        }
+    }
 }
 
 // Represents a report denoting which parking lot, status included in report,
 // and time the report was made
-struct Report {
+struct Report: Comparable {
+    
     var parking: Lot!
     var status: Int!
     var time: Int64!
@@ -62,6 +77,20 @@ struct Report {
             return "Almost full"
         default:
             return "How full is the parking lot?"
+        }
+    }
+    
+    // Returns the appropriate UIImage from the status
+    func statusImage() -> UIImage {
+        switch(status) {
+        case 0:
+            return UIImage(named: "low")!
+        case 1:
+            return UIImage(named: "med")!
+        case 2:
+            return UIImage(named: "high")!
+        default:
+            return UIImage(named: "unk")!
         }
     }
     
@@ -113,6 +142,55 @@ struct Report {
             return String(seconds) + right
         }
     }
+    
+    // All sorts are reversed so we get reports in descending order (newest first)
+    static func <(lhs: Report, rhs: Report) -> Bool {
+        if (lhs.parking.name != rhs.parking.name) { return false }
+        
+        let timeLeft = Int(lhs.time)
+        let timeRight = Int(rhs.time)
+        
+        if (timeLeft > timeRight) { return true }
+        return false
+    }
+    
+    static func <=(lhs: Report, rhs: Report) -> Bool {
+        if (lhs.parking.name != rhs.parking.name) { return false }
+        
+        let timeLeft = Int(lhs.time)
+        let timeRight = Int(rhs.time)
+        
+        if (timeLeft >= timeRight) { return true }
+        return false
+    }
+    
+    static func ==(lhs: Report, rhs: Report) -> Bool {
+        if ((lhs.parking.name == rhs.parking.name) &&
+            (lhs.status == rhs.status) &&
+            (Int(lhs.time) == Int(rhs.time))) { return true }
+        return false
+    }
+    
+    static func >=(lhs: Report, rhs: Report) -> Bool {
+        if (lhs.parking.name != rhs.parking.name) { return false }
+        
+        let timeLeft = Int(lhs.time)
+        let timeRight = Int(rhs.time)
+        
+        if (timeLeft <= timeRight) { return true }
+        return false
+    }
+    
+    static func >(lhs: Report, rhs: Report) -> Bool {
+        if (lhs.parking.name != rhs.parking.name) { return false }
+        
+        let timeLeft = Int(lhs.time)
+        let timeRight = Int(rhs.time)
+        
+        if (timeLeft < timeRight) { return true }
+        return false
+    }
+    
 }
 
 // Intermediate, as JSON cannot be directly converted to Double

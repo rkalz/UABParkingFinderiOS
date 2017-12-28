@@ -12,8 +12,16 @@ import Foundation
 // of those coordinates of size x size
 func generateSingleGMapsURL(lat: Double, lon: Double, size: Int) -> URL? {
     
-    let path = "https://maps.googleapis.com/maps/api/staticmap?center=" + String(lat) + "," + String(lon) + "&markers=color:red|" + String(lat) +
-        "," + String(lon) + "&zoom=13&size=" + String(size) + "x" + String(size)
+    let path = "https://maps.googleapis.com/maps/api/staticmap?center=" + String(lat) + "," + String(lon) + "&markers=color:red|" + String(lat) + "," + String(lon) + "&zoom=14&size=" + String(size) + "x" + String(size)
+    
+    return URL(string: path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+}
+
+// Takes a size and two pairs of latitude and longitude to return a Google Maps image
+// of these coordinates of size x size
+func generatePairGMapsURL(latA: Double, lonA: Double, latB: Double, lonB: Double, size: Int) -> URL? {
+    
+    let path = "https://maps.googleapis.com/maps/api/staticmap?markers=color:blue||" + String(latA) + "," + String(lonA) + "&markers=color:red|" + String(latB) + "," + String(lonB) + "&size=" + String(size) + "x" + String(size)
     
     return URL(string: path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
 }

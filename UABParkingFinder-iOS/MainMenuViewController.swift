@@ -26,7 +26,9 @@ class MainMenuTableViewCell: UITableViewCell {
 class MainMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
     
     var lots = [Lot]()
+    var statuses = [Int]()
     var distances = [Double]()
+    
     var ref: DatabaseReference!
     var refreshControl: UIRefreshControl!
     let manager = CLLocationManager()
@@ -63,6 +65,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
                 for place in jsonPlaces.data {
                     self.lots.append(place.toLot())
                     self.distances.append(0)
+                    self.statuses.append(0)
                 }
                 
                 print("Parking data received!")
@@ -90,6 +93,10 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         // Tells list of lots to use this controller 
         self.listOfLots.delegate = self
         self.listOfLots.dataSource = self
+        
+        // Setup location service
+        manager.delegate = self
+        manager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
     // Runs after view successfully loaded
@@ -103,9 +110,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.addTarget(self, action: #selector(MainMenuViewController.refresh), for: UIControlEvents.valueChanged)
         self.listOfLots.addSubview(refreshControl)
         
-        // Setup location service
-        manager.delegate = self
-        manager.desiredAccuracy = kCLLocationAccuracyBest
+        // Ask permission and get current location
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
     }
@@ -132,10 +137,11 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // Get most recent overall status
-    func updateStatusImage(parking: Lot, cell: MainMenuTableViewCell) {
+    func updateStatusImage(parking: Lot, pos: Int, cell: MainMenuTableViewCell) {
         ref.child("overall").child(parking.name).observe(DataEventType.value,
             with: { (snapshot) in
                 let status = snapshot.value as! Int
+                self.statuses[pos] = status
                 
                 switch(status) {
                     case 0:
@@ -188,7 +194,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         cell.name?.text = parking.name
         cell.statusImg?.image = UIImage(named: "unk")
         updateReportTime(parking: parking, cell: cell)
-        updateStatusImage(parking: parking, cell: cell)
+        updateStatusImage(parking: parking, pos: indexPath.row, cell: cell)
         cell.distance?.text = readableDistance(distance: distances[indexPath.row])
         
         return cell
@@ -201,7 +207,8 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let destination = storyboard.instantiateViewController(withIdentifier: "ParkingMenuView") as! ParkingMenuViewController
-        destination.lotName = lots[indexPath.row].name
+        lots[indexPath.row].status = statuses[indexPath.row]
+        destination.lot = lots[indexPath.row]
         
         self.present(destination, animated: true, completion: nil)
         
@@ -211,6 +218,7 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func refresh(sender: AnyObject) {
         
         self.listOfLots.reloadData()
+        self.manager.startUpdatingLocation()
         refreshControl.endRefreshing()
         
     }
@@ -219,12 +227,15 @@ class MainMenuViewController: UIViewController, UITableViewDelegate, UITableView
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let curLoc = locations[0]
         
+        let FEET_PER_METER: Double = 3.28084
+        
         var pos: Int = 0
         for lot in lots {
             let lotLoc = CLLocation(latitude: lot.lat, longitude: lot.lon)
             
             // Get distance and convert to feet
-            distances[pos] = curLoc.distance(from: lotLoc) / 0.3048
+            let distance = curLoc.distance(from: lotLoc)
+            distances[pos] =  distance * FEET_PER_METER
             pos += 1
         }
         self.manager.stopUpdatingLocation()
