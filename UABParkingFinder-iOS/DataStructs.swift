@@ -50,20 +50,20 @@ struct Lot {
 // and time the report was made
 struct Report: Comparable {
     
-    var parking: Lot!
+    var lot: Lot!
     var status: Int!
-    var time: Int64!
+    var reportTime: Int64!
     
     init(inLot: Lot, inStat: Int) {
-        parking = inLot
+        lot = inLot
         status = inStat
-        time = Int64(Date().timeIntervalSince1970 * 1000)
+        reportTime = Int64(Date().timeIntervalSince1970 * 1000)
     }
     
     init(inLot: Lot, inStat: Int, inTime: Int64) {
-        parking = inLot
+        lot = inLot
         status = inStat
-        time = inTime
+        reportTime = inTime
     }
     
     // String representation of status
@@ -98,7 +98,7 @@ struct Report: Comparable {
     // Relative to current time
     func readableLastReportTime() -> String {
         let curTime = Int64(Date().timeIntervalSince1970 * 1000)
-        let diff = curTime - self.time
+        let diff = curTime - self.reportTime
         
         var seconds = diff / 1000
         var minutes = seconds / 60
@@ -145,47 +145,47 @@ struct Report: Comparable {
     
     // All sorts are reversed so we get reports in descending order (newest first)
     static func <(lhs: Report, rhs: Report) -> Bool {
-        if (lhs.parking.name != rhs.parking.name) { return false }
+        if (lhs.lot.name != rhs.lot.name) { return false }
         
-        let timeLeft = Int(lhs.time)
-        let timeRight = Int(rhs.time)
+        let timeLeft = Int(lhs.reportTime)
+        let timeRight = Int(rhs.reportTime)
         
         if (timeLeft > timeRight) { return true }
         return false
     }
     
     static func <=(lhs: Report, rhs: Report) -> Bool {
-        if (lhs.parking.name != rhs.parking.name) { return false }
+        if (lhs.lot.name != rhs.lot.name) { return false }
         
-        let timeLeft = Int(lhs.time)
-        let timeRight = Int(rhs.time)
+        let timeLeft = Int(lhs.reportTime)
+        let timeRight = Int(rhs.reportTime)
         
         if (timeLeft >= timeRight) { return true }
         return false
     }
     
     static func ==(lhs: Report, rhs: Report) -> Bool {
-        if ((lhs.parking.name == rhs.parking.name) &&
+        if ((lhs.lot.name == rhs.lot.name) &&
             (lhs.status == rhs.status) &&
-            (Int(lhs.time) == Int(rhs.time))) { return true }
+            (Int(lhs.reportTime) == Int(rhs.reportTime))) { return true }
         return false
     }
     
     static func >=(lhs: Report, rhs: Report) -> Bool {
-        if (lhs.parking.name != rhs.parking.name) { return false }
+        if (lhs.lot.name != rhs.lot.name) { return false }
         
-        let timeLeft = Int(lhs.time)
-        let timeRight = Int(rhs.time)
+        let timeLeft = Int(lhs.reportTime)
+        let timeRight = Int(rhs.reportTime)
         
         if (timeLeft <= timeRight) { return true }
         return false
     }
     
     static func >(lhs: Report, rhs: Report) -> Bool {
-        if (lhs.parking.name != rhs.parking.name) { return false }
+        if (lhs.lot.name != rhs.lot.name) { return false }
         
-        let timeLeft = Int(lhs.time)
-        let timeRight = Int(rhs.time)
+        let timeLeft = Int(lhs.reportTime)
+        let timeRight = Int(rhs.reportTime)
         
         if (timeLeft < timeRight) { return true }
         return false

@@ -19,10 +19,14 @@ class ParkingMenuTableViewCell: UITableViewCell {
     @IBOutlet weak var reportStatusImage: UIImageView!
 }
 
-class ParkingMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate {
+class ParkingMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource, CLLocationManagerDelegate {
     
     var lot: Lot = Lot(inName: "lotName")
     var reports = [Report]()
+    var pickerData = [String]()
+    var selectedStatus: Int = -1
+    var reportReady = false
+    
     let manager = CLLocationManager()
     var ref: DatabaseReference!
     var refreshControl: UIRefreshControl!
@@ -32,10 +36,7 @@ class ParkingMenuViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var lotMapImage: UIImageView!
     @IBOutlet weak var lotStatusLabel: UILabel!
     @IBOutlet weak var selectStatusPicker: UIPickerView!
-    @IBOutlet weak var sendReportButton: UIButton!
     @IBOutlet weak var listOfReports: UITableView!
-    @IBOutlet weak var backButton: UIButton!
-    
     
     // Populates report table with the ten most recent reports and adds listener for any
     // data that comes in later
@@ -63,9 +64,9 @@ class ParkingMenuViewController: UIViewController, UITableViewDelegate, UITableV
                 let status = (rep as! NSDictionary)["status"] as! Int
                 
                 self.reports.append(Report(inLot: self.lot, inStat: status, inTime: time))
-                self.reports.remove(at: 0)
             }
             self.reports.sort()
+            let _ = self.reports.popLast()
             self.listOfReports.reloadData()
         })
     }
@@ -76,6 +77,8 @@ class ParkingMenuViewController: UIViewController, UITableViewDelegate, UITableV
         ref = Database.database().reference()
         self.listOfReports.delegate = self
         self.listOfReports.dataSource = self
+        self.selectStatusPicker.delegate = self
+        self.selectStatusPicker.dataSource = self
     }
     
     override func viewDidLoad() {
@@ -99,6 +102,16 @@ class ParkingMenuViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Get data from database
         getFirebaseData()
+        
+        // Populate pickerData
+        pickerData = ["How full is the parking lot?",
+                      "Somewhat empty",
+                      "Filling up",
+                      "Almost full"]
+        
+        // Add long press to map image
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(ParkingMenuViewController.longPressed))
+        lotMapImage?.addGestureRecognizer(tapRecognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -138,5 +151,48 @@ class ParkingMenuViewController: UIViewController, UITableViewDelegate, UITableV
         self.listOfReports.reloadData()
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.selectedStatus = row - 1
+        if (row != 0) { reportReady = true }
+    }
+    
+    // Sends report when send report button is pressed
+    @IBAction func onSendReportTouchDown(_ sender: Any) {
+        if (reportReady) {
+            let data = Report(inLot: self.lot, inStat: self.selectedStatus)
+            
+            let report: NSDictionary = [
+                "lot" : data.lot.name as NSString,
+                "reportTime" : data.reportTime! as NSNumber,
+                "status" : data.status! as NSNumber
+            ]
+            
+            ref.child("reports").child(lot.name).childByAutoId().setValue(report)
+            self.reportReady = false
+        }
+    }
+    
+    // Opens Maps for directions to lot
+    @objc func longPressed(sender: UITapGestureRecognizer) {
+        var url = String()
+        if (UIApplication.shared.canOpenURL(URL(string:"comgooglemaps://")!)) {
+            url = "comgooglemaps://?center=" + String(self.lot.lat) + "," + String(self.lot.lon) + "&zoom=14"
+        } else {
+            url = "http://maps.apple.com/?sll=" + String(self.lot.lat) + "," + String(self.lot.lon) + "&z=14"
+        }
+        UIApplication.shared.open(URL(string: url)!, options: [:], completionHandler: nil)
+    }
 }
 

@@ -126,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="323" height="1000"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="lotNameLabel" text="LotName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fue-ub-5dc" userLabel="LotNameLabel">
-                                                <rect key="frame" x="78" y="44" width="165" height="40"/>
+                                                <rect key="frame" x="79" y="44" width="165" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                                 <nil key="textColor"/>
@@ -137,14 +137,14 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="lotStatusLabel" text="LotStatus" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkz-xT-boe" userLabel="LotStatusLabel">
-                                                <rect key="frame" x="78" y="340" width="165" height="50"/>
+                                                <rect key="frame" x="79" y="340" width="165" height="50"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="31"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <pickerView contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="seleteStatusView" translatesAutoresizingMaskIntoConstraints="NO" id="Zdl-pp-qhZ" userLabel="SelectStatus">
-                                                <rect key="frame" x="-50" y="379" width="422" height="47"/>
+                                                <rect key="frame" x="-1" y="374" width="323" height="67"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             </pickerView>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="parkingReportsView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7D1-B1-j4T" userLabel="ParkingReportsTable">
@@ -201,13 +201,8 @@
                                                     <segue destination="pct-iL-eFH" kind="show" identifier="ParkingToMainSegue" id="fD2-Dd-m72"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhe-XD-zM0" userLabel="SendReportButton">
-                                                <rect key="frame" x="137" y="423" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Send"/>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Recent Reports" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xX4-pd-jla">
-                                                <rect key="frame" x="97" y="454" width="127" height="21"/>
+                                                <rect key="frame" x="98" y="465" width="127" height="21"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -221,6 +216,14 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhe-XD-zM0" userLabel="SendReportButton">
+                                                <rect key="frame" x="104" y="435" width="112" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Send Report"/>
+                                                <connections>
+                                                    <action selector="onSendReportTouchDown:" destination="Zxt-fS-EMY" eventType="touchDown" id="cGt-0o-3ra"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
@@ -248,14 +251,12 @@
                     </view>
                     <size key="freeformSize" width="323" height="1000"/>
                     <connections>
-                        <outlet property="backButton" destination="obd-Au-uEb" id="Zmu-T4-AmS"/>
                         <outlet property="listOfReports" destination="7D1-B1-j4T" id="yAe-Dy-cL3"/>
                         <outlet property="lotMapImage" destination="G4n-du-XHl" id="UGm-Yp-eb0"/>
                         <outlet property="lotNameLabel" destination="fue-ub-5dc" id="8uf-WQ-L4s"/>
                         <outlet property="lotStatusLabel" destination="Mkz-xT-boe" id="bzh-Eq-q1l"/>
                         <outlet property="scrollView" destination="cK7-Wd-gb4" id="xSP-r8-r4l"/>
                         <outlet property="selectStatusPicker" destination="Zdl-pp-qhZ" id="fth-p2-Rmz"/>
-                        <outlet property="sendReportButton" destination="vhe-XD-zM0" id="YUS-Ha-ZFG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3P0-kA-KNV" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UABParkingFinder-iOS/MainMenuViewController.swift"
-            timestampString = "536193424.381855"
+            timestampString = "536198914.560891"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "240"
@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UABParkingFinder-iOS/HelperFunctions.swift"
-            timestampString = "536193424.382125"
+            timestampString = "536198914.563104"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "34"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UABParkingFinder-iOS/MainMenuViewController.swift"
-            timestampString = "536193424.382334"
+            timestampString = "536198914.564698"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "237"
@@ -58,12 +58,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "UABParkingFinder-iOS/ParkingMenuViewController.swift"
-            timestampString = "536193424.382617"
+            timestampString = "536198914.565142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "getFirebaseData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "UABParkingFinder-iOS/ParkingMenuViewController.swift"
+            timestampString = "536198914.569441"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "189"
+            endingLineNumber = "189"
+            landmarkName = "longPressed(sender:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
